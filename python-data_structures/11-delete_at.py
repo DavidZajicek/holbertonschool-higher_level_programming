@@ -1,8 +1,8 @@
 #!/usr/bin/python3
 
-def delete_at(my_list: list = [], idx:int = 0):
+def delete_at(my_list: list = [], idx: int = 0):
     if idx < 0 or idx >= len(my_list):
-        return None
+        return my_list
     new_list: list = my_list.copy()
     my_list.clear()
     i = 0
