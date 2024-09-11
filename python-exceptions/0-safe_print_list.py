@@ -6,7 +6,7 @@ def safe_print_list(my_list=[], x=0):
         try:
             print("{}".format(my_list[i]), end="")
             i += 1
-        except (IndexError, TypeError):
+        except (Exception):
             print("")
             return i
     print("")
@@ -14,7 +14,7 @@ def safe_print_list(my_list=[], x=0):
 
 
 def main():
-    my_list = 3
+    my_list = [1, 2, 3, 4, 5]
 
     nb_print = safe_print_list(my_list, 2)
     print("nb_print: {:d}".format(nb_print))
