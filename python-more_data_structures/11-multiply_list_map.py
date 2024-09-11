@@ -2,7 +2,7 @@
 
 
 def multiply_list_map(my_list: list = [], number=0):
-    return [x*number for x in my_list].copy()
+    return list(map(lambda x: x*number, my_list)).copy()
 
 
 def main():
