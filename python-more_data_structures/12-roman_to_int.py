@@ -12,7 +12,7 @@ def roman_to_int(roman_string: str):
         "D": 500,
     }
     previous = ""
-    if not roman_string:
+    if not roman_string or not isinstance(roman_string, str):
         return rome
     a_day = list(roman_string)
     previous = a_day[0]
@@ -23,6 +23,7 @@ def roman_to_int(roman_string: str):
             if romaine[previous] < romaine[built]:
                 rome -= romaine[previous] * 2
             rome += romaine[built]
+        previous = built
     return rome
 
 
@@ -40,6 +41,9 @@ def main():
     print("{} = {}".format(roman_number, roman_to_int(roman_number)))
 
     roman_number = "DCCVII"
+    print("{} = {}".format(roman_number, roman_to_int(roman_number)))
+
+    roman_number = "CXXIV"
     print("{} = {}".format(roman_number, roman_to_int(roman_number)))
 
 
