@@ -12,8 +12,7 @@ def safe_print_list(my_list=[], x=0):
             return i
         except TypeError:
             return i
-    if i > 0:
-        print("")
+    print("")
     return i
 
 
