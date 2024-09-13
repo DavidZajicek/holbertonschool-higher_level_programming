@@ -22,11 +22,11 @@ def main():
 
     nb_print = safe_print_list(my_list, 1)
     print("nb_print: {:d}".format(nb_print))
-    nb_print = safe_print_list([], len([]))
+    nb_print = safe_print_list([], 0)
     print("nb_print: {:d}".format(nb_print))
-    nb_print = safe_print_list(my_list, len(my_list) + 2)
+    nb_print = safe_print_list(my_list,  + 2)
     print("nb_print: {:d}".format(nb_print))
-    nb_print = safe_print_list(123, len(my_list) + 2)
+    nb_print = safe_print_list(123, + 2)
     print("nb_print: {:d}".format(nb_print))
 
 
