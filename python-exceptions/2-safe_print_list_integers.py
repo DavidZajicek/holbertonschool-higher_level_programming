@@ -2,23 +2,25 @@
 
 def safe_print_list_integers(my_list=[], x=0):
     i = 0
+    printed = 0
     while i < x:
         try:
             print("{:d}".format(my_list[i]), end="")
             i += 1
+            printed += 1
         except IndexError:
             return IndexError
         except (TypeError, ValueError):
             i += 1
             continue
     print("")
-    return i
+    return printed
 
 
 def main():
     my_list = ["1", 2, 3, 4, 5]
 
-    nb_print = safe_print_list_integers(my_list, 1)
+    nb_print = safe_print_list_integers(my_list, 2)
     print("nb_print: {:d}".format(nb_print))
     nb_print = safe_print_list_integers([], 0)
     print("nb_print: {:d}".format(nb_print))
