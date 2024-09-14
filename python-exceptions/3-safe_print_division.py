@@ -2,17 +2,19 @@
 
 def safe_print_division(a, b):
     value = 0
+    result = "Inside result: None"
     try:
         value = a / b
-    except (TypeError, ValueError, ZeroDivisionError):
+        result = "Inside result: {:.1f}".format(value)
+    except ZeroDivisionError:
         return None
     finally:
-        print("Inside result: {:.1f}".format(value))
-        return value
+        print(result)
+    return value
 
 
 def main():
-    has_been_print = safe_print_division(1, 0)
+    has_been_print = safe_print_division(1, 1)
     print(has_been_print)
 
 
