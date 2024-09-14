@@ -9,7 +9,7 @@ def safe_print_list_integers(my_list=[], x=0):
         except IndexError:
             if i != 0:
                 print("")
-            return i
+            return IndexError
         except (TypeError, ValueError):
             i += 1
             continue
