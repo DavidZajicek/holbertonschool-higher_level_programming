@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 """
 0-add_integer
 This is a module for adding integers together using python3.8
@@ -14,6 +15,8 @@ def add_integer(a, b=98):
     except TypeError as err:
         raise TypeError("a must be an integer") from err
     try:
+        if isinstance(b, str):
+            raise TypeError
         _b = int(b)
     except (TypeError, ValueError) as err:
         raise NameError("b must be an integer") from err
