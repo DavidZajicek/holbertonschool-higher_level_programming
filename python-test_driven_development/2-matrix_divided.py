@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 2-matrix_divided
-This is a module for dividing all of the elements 
+This is a module for dividing all of the elements
 in a matrix by the given divisor
 """
 
