@@ -1,7 +1,7 @@
 >>> say_my_name = __import__('3-say_my_name').say_my_name
 
 >>> say_my_name("first_name", "last_name")
-first_name last_name
+My name is first_name last_name
 
 >>> say_my_name(123, "last_name")
 Traceback (most recent call last):
@@ -14,4 +14,4 @@ Traceback (most recent call last):
 TypeError: last_name must be a string
 
 >>> say_my_name("first_name")
-first_name 
+My name is first_name 
