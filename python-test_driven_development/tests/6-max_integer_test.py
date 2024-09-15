@@ -25,6 +25,9 @@ class TestMaxIntegerMethod(unittest.TestCase):
     def test_short_list(self):
         self.assertEqual(1, max_integer([1]))
 
+    def test_empty_list(self):
+        self.assertEqual(None, max_integer([]))
+
 
 if __name__ == '__main__':
     unittest.main()
