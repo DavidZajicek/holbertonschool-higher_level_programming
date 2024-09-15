@@ -10,8 +10,20 @@ class TestMaxIntegerMethod(unittest.TestCase):
         with self.assertRaises(TypeError):
             max_integer(123)
 
-    def test_none(self):
-        self.assertEqual(None, max_integer([]))
+    def test_max_first(self):
+        self.assertEqual(4, max_integer([4, 3, 2, 1]))
+
+    def test_max_mid(self):
+        self.assertEqual(4, max_integer([1, 4, 3, 2]))
+
+    def test_negative(self):
+        self.assertEqual(4, max_integer([1, 2, 4, -1]))
+
+    def test_only_negatives(self):
+        self.assertEqual(-1, max_integer([-4, -3, -2, -1]))
+
+    def test_short_list(self):
+        self.assertEqual(1, max_integer([1]))
 
 
 if __name__ == '__main__':
