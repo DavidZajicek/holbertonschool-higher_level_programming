@@ -24,7 +24,7 @@ class Rectangle:
             return ""
         for _ in range(self.height):
             for _ in range(self.width):
-                result.append(self.print_symbol)
+                result.append(str(self.print_symbol))
             result.append('\n')
         return "".join(result[:-1])
 
