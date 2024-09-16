@@ -30,7 +30,7 @@ class TestSquareClass(unittest.TestCase):
     def test_area_method(self):
         """Print the Square's total area"""
         my_square = Square(3)
-        self.assertEqual(None, my_square.area())
+        self.assertEqual(9, my_square.area())
 
 
 if __name__ == '__main__':
