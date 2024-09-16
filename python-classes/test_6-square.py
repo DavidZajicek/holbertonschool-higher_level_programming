@@ -59,6 +59,7 @@ class TestSquareClass(unittest.TestCase):
         Square(2, (1, 1)).my_print()
         Square(2, (1, 2)).my_print()
         Square(2, (2, 1)).my_print()
+        Square(0, (2, 3)).my_print()
 
     def test_position_get_set(self):
         """Tests the size's getter and setter methods"""
