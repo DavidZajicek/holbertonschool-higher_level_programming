@@ -20,7 +20,7 @@ class Square:
         __init__ initialises an instance of the given class
         """
         self.__size = size
-        print(f"{self.__dict__}\n{self.__size}")
+        # print(f"{self.__dict__}\n{self.__size}")
 
 
 if __name__ == "__main__":
