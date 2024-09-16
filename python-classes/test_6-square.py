@@ -7,7 +7,7 @@ class TestSquareClass(unittest.TestCase):
 
     def test_init(self):
         """Test with working value"""
-        square = Square(3)
+        square = Square(3, (1, 1))
         print(type(square))
         self.assertEqual(2, len(square.__dict__))
 
