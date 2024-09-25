@@ -15,7 +15,7 @@ class MyList(list):
         """
         print list sorted
         """
-        print(sorted(self))
+        return MyList(sorted(self))
 
 
 if __name__ == "__main__":
