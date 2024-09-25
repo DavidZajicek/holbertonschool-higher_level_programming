@@ -13,12 +13,12 @@ class Rectangle(BaseGeometry):
     Rectangle
     """
 
-    def __init__(self, width=0, height=0):
+    def __init__(self, width, height):
         """
         init
         """
-        BaseGeometry.integer_validator("width", width)
-        BaseGeometry.integer_validator("height", height)
+        BaseGeometry.integer_validator(self, "width", width)
+        BaseGeometry.integer_validator(self, "height", height)
         self.__width = width
         self.__height = height
 
