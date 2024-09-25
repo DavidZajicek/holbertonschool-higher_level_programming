@@ -11,7 +11,7 @@ def inherits_from(obj, a_class):
     """
     check is same class
     """
-    return issubclass(type(obj), a_class)
+    return issubclass(type(obj), a_class) and not type(obj) is a_class
 
 
 if __name__ == "__main__":
