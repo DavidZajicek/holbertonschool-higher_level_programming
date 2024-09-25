@@ -11,7 +11,7 @@ def lookup(obj: object):
     """
     return list of attributes and methods
     """
-    return list(obj.__dict__)
+    return list(dir(obj))
 
 
 if __name__ == "__main__":

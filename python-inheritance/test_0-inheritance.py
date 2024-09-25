@@ -8,6 +8,8 @@ class TestSquareClass(unittest.TestCase):
     def test_init(self):
         """Test with working value"""
         print(inheritance.lookup(int))
+        print(inheritance.lookup(float))
+        print(inheritance.lookup(object))
 
 
 if __name__ == '__main__':
