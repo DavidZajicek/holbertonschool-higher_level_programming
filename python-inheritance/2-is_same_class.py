@@ -11,7 +11,7 @@ def is_same_class(obj, a_class):
     """
     check is same class
     """
-    return True if type(obj) == type(a_class) else False
+    return type(obj) == type(a_class)
 
 
 if __name__ == "__main__":
