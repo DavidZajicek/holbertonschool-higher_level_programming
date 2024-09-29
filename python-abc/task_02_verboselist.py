@@ -31,8 +31,8 @@ class VerboseList(list):
     def pop(self, index: SupportsIndex = -1):
         try:
             value = self[index]
-            super().pop(index)
             print(f'Popped {value} from the list.')
+            return super().pop(index)
         except IndexError:
             print(f'Index [{index}] not in list.')
 
