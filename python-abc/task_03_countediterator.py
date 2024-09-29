@@ -23,8 +23,10 @@ class CountedIterator(ABC):
         return self
 
     def __next__(self):
-        self.__counter += 1
-        return next(self.iterator)
+        current = next(self.iterator)
+        if current is not None:
+            self.__counter += 1
+        return current
 
 
 if __name__ == "__main__":
