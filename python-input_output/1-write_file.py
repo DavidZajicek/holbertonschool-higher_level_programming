@@ -11,7 +11,8 @@ def write_file(filename: str = "", text: str = ""):
     Write File
     """
     with open(filename, 'w', encoding="utf-8") as file:
-        file.write(text)
+        return file.write(text)
+
 
 if __name__ == "__main__":
     write_file("/home/holberton/test-write.txt", "test line\n")
