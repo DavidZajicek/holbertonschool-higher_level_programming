@@ -31,7 +31,7 @@ class Student():
         """
         Overwrite Student Data
         """
-        for (key, value) in json:
+        for (key, value) in json.items():
             if key == "first_name":
                 self.first_name = value
             if key == "last_name":
