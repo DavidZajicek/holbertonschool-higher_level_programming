@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" 
+"""
 9. Student to JSON
 mandatory
 Write a class Student that defines a student by:
