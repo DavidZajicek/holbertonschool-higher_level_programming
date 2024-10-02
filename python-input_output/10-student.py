@@ -23,7 +23,7 @@ class Student():
         """
         Return self as serialisable json dict
         """
-        if attrs:
+        if attrs is not None:
             return {x: y for (x, y) in self.__dict__.items() if x in attrs}
         return self.__dict__
 
@@ -32,7 +32,7 @@ if __name__ == "__main__":
     student_1 = Student("John", "Doe", 23)
     student_2 = Student("Bob", "Dylan", 27)
 
-    j_student_1 = student_1.to_json()
+    j_student_1 = student_1.to_json([])
     j_student_2 = student_2.to_json(['first_name', 'age'])
     j_student_3 = student_2.to_json(['middle_name', 'age'])
 
