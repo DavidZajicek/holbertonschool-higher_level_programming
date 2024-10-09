@@ -27,14 +27,18 @@ def pascal_triangle(n):
     """
     Pascal Triangle
     """
-    result = []
+    if n <= 0:
+        return []
 
-    for count in range(n):
+    triangle = [[]]
+    triangle[0].append(1)
+    for _ in range(1, n):
         row = []
-        for element in range(count + 1):
-            row.append(combination(count, element))
-        result.append(row)
-    return result
+        temp = [0] + triangle[-1] + [0]
+        for j in range(len(triangle) + 1):
+            row.append(temp[j] + temp[j + 1])
+        triangle.append(row)
+    return (triangle)
 
 
 def print_triangle(triangle):
