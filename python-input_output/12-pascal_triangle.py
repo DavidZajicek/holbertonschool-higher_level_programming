@@ -4,15 +4,25 @@
 mandatory
 .
 """
+import math
+
+
+def combination(n, r):
+    return int((math.factorial(n)) / ((math.factorial(r)) * math.factorial(n - r)))
 
 
 def pascal_triangle(n):
     """
     Pascal Triangle
     """
-    if n <= 0:
-        return []
-    
+    result = []
+
+    for count in range(n):
+        row = []
+        for element in range(count + 1):
+            row.append(combination(count, element))
+        result.append(row)
+    return result
 
 
 def print_triangle(triangle):
@@ -24,4 +34,4 @@ def print_triangle(triangle):
 
 
 if __name__ == "__main__":
-    print_triangle(pascal_triangle(5))
+    print_triangle(pascal_triangle(6))
