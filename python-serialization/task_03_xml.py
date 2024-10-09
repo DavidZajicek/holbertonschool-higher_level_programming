@@ -21,10 +21,7 @@ def deserialize_from_xml(filename):
     root = tree.getroot()
     data = {}
     for child in root:
-        if child.tag == 'age':
-            data[child.tag] = int(child.text)
-        else:
-            data[child.tag] = child.text
+        data[child.tag] = child.text
     return data
 
 
