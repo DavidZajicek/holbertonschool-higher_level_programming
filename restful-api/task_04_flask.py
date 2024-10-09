@@ -14,7 +14,7 @@ users = {"jane": {"username": "jane", "name": "Jane", "age": 28, "city": "Los An
 
 @app.route("/")
 def hello_world():
-    return "<p>Hello, World!</p>"
+    return "Welcome to the Flask API!"
 
 
 @app.route("/data")
