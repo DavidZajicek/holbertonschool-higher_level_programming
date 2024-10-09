@@ -29,7 +29,7 @@ class task_03_server(BaseHTTPRequestHandler):
                 self.end_headers()
                 self.wfile.write(json.dumps(response).encode('utf-8'))
             else:
-                self.send_error(404, "Undefined Endpoint")
+                self.send_error(404, "Endpoint not found")
         else:
             self.send_response(200)
             self.end_headers()
