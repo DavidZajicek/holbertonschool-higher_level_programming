@@ -19,7 +19,7 @@ def hello_world():
 
 @app.route("/data")
 def data():
-    return jsonify([username for username in users.keys()])
+    return jsonify([username for username in users])
 
 
 @app.route("/status")
@@ -32,7 +32,7 @@ def get_user(username):
     try:
         return users[username]
     except KeyError:
-        return jsonify({"error": "User not found"})
+        return jsonify({"error": "User not found"}), 404
 
 
 @app.post("/add_user")
@@ -42,7 +42,7 @@ def add_user():
         users[user['username']] = user
         return jsonify({"message": "User added", "user": user})
     except KeyError:
-        return jsonify({"error": "Username is required"})
+        return jsonify({"error": "Username is required"}), 400
 
 
 if __name__ == "__main__":
