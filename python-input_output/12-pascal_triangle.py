@@ -7,6 +7,9 @@ mandatory
 
 
 def factorial(n):
+    """
+    factorial
+    """
     fact = 1
     for num in range(2, n + 1):
         fact *= num
@@ -14,6 +17,9 @@ def factorial(n):
 
 
 def combination(n, r):
+    """
+    combination
+    """
     return int((factorial(n)) / ((factorial(r)) * factorial(n - r)))
 
 
