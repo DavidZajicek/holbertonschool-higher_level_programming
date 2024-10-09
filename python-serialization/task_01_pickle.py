@@ -24,7 +24,7 @@ class CustomObject:
         with open(filename, "rb") as file:
             try:
                 return pickle.load(file)
-            except pickle.UnpicklingError:
+            except (pickle.UnpicklingError, EOFError):
                 return None
 
     def display(self):
