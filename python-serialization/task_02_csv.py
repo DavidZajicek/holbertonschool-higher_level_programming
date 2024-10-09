@@ -9,20 +9,20 @@ import json
 
 
 def convert_csv_to_json(csv_file):
-    data = {}
+    objects = []
 
     try:
         with open(csv_file, encoding='utf-8') as csvfile:
             csv_reader = csv.DictReader(csvfile)
 
             for row in csv_reader:
-                key = row['name']
-                data[key] = row
+                objects.append(row)
+
     except FileNotFoundError:
         return False
 
     with open('data.json', 'w', encoding='utf-8') as jsonfile:
-        jsonfile.write(json.dumps(data))
+        jsonfile.write(json.dumps(objects))
 
     return True
 
