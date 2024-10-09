@@ -4,6 +4,7 @@
 mandatory
 Write a function that reads a text file (UTF8) and prints it to stdout:
 """
+import json
 from http.server import HTTPServer, BaseHTTPRequestHandler
 
 
@@ -19,14 +20,14 @@ class task_03_server(BaseHTTPRequestHandler):
                 self.send_response(200)
                 self.send_header('Content-type', 'application/json')
                 self.end_headers()
-                self.wfile.write(str(response).encode('utf-8'))
+                self.wfile.write(json.dumps(response).encode('utf-8'))
             elif self.path == '/info':
                 response = {"version": "1.0",
                             "description": "A simple API built with http.server"}
                 self.send_response(200)
                 self.send_header('Content-type', 'application/json')
                 self.end_headers()
-                self.wfile.write(str(response).encode('utf-8'))
+                self.wfile.write(json.dumps(response).encode('utf-8'))
             else:
                 self.send_response(404)
                 self.end_headers()
