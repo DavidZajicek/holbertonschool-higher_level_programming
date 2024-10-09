@@ -7,6 +7,7 @@ Write a function that reads a text file (UTF8) and prints it to stdout:
 from flask import Flask, jsonify, request
 
 app = Flask(__name__)
+app.json.sort_keys = False
 
 users = {}
 
@@ -38,6 +39,8 @@ def get_user(username):
 def add_user():
     user = request.get_json()
     try:
+        if users.get(user['username']):
+            return jsonify(users[user['username']])
         users[user['username']] = user
         return jsonify({"message": "User added", "user": user})
     except KeyError:
