@@ -25,6 +25,7 @@ users = {
 def verify_password(username, password):
     if username in users and check_password_hash(users.get(username).get("password"), password):
         return username
+    return None
 
 
 @basic_auth.get_user_roles
@@ -32,7 +33,7 @@ def get_user_roles(user):
     return user.get_roles()
 
 
-@app.get('/basic-protected')
+@app.route('/basic-protected')
 @basic_auth.login_required
 def basic_protected():
     return "Hello, {}!".format(basic_auth.current_user())
