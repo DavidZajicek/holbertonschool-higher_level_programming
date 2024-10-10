@@ -15,10 +15,7 @@ basic_auth = HTTPBasicAuth()
 app.config["JWT_SECRET_KEY"] = "holberton-study"
 jwt = JWTManager(app)
 
-users = {
-    "user1": {"username": "user1", "password":  generate_password_hash("user1"), "role": "user"},
-    "admin1": {"username": "admin1", "password": generate_password_hash("admin1"), "role": "admin"}
-}
+users = {}
 
 
 @basic_auth.verify_password
@@ -87,5 +84,39 @@ def handle_needs_fresh_token_error(err):
     return jsonify({"error": "Fresh token required"}), 401
 
 
+@app.route("/")
+def hello_world():
+    return "Welcome to the Flask API!"
+
+
+@app.route("/data")
+def data():
+    return jsonify([username for username in users])
+
+
+@app.route("/status")
+def status():
+    return "OK"
+
+
+@app.route("/users/<username>")
+def get_user(username):
+    try:
+        return users[username]
+    except KeyError:
+        return jsonify({"error": "User not found"}), 404
+
+
+@app.post("/add_user")
+def add_user():
+    user = request.get_json()
+    try:
+        user['password'] = generate_password_hash(user['password'])
+        users[user['username']] = user
+        return jsonify({"message": "User added", "user": user}), 201
+    except KeyError:
+        return jsonify({"error": "Username is required"}), 400
+
+
 if __name__ == "__main__":
-    app.run(host='localhost', port=5000, debug=True)
+    app.run()
