@@ -36,7 +36,7 @@ def get_user_roles(user):
 @app.route('/basic-protected')
 @basic_auth.login_required
 def basic_protected():
-    return "Hello, {}!".format(basic_auth.current_user())
+    return "Basic Auth: Access Granted"
 
 
 @app.route('/login', methods=["POST"])
