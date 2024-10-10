@@ -39,10 +39,8 @@ def get_user(username):
 def add_user():
     user = request.get_json()
     try:
-        if users.get(user['username']):
-            return jsonify(users[user['username']])
         users[user['username']] = user
-        return jsonify({"message": "User added", "user": user})
+        return jsonify({"message": "User added", "user": user}), 201
     except KeyError:
         return jsonify({"error": "Username is required"}), 400
 
