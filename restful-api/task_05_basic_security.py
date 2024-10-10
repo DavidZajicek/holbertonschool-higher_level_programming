@@ -15,7 +15,10 @@ basic_auth = HTTPBasicAuth()
 app.config["JWT_SECRET_KEY"] = "holberton-study"
 jwt = JWTManager(app)
 
-users = {}
+users = {
+    "user": {"username": "user", "password": generate_password_hash("user"), "role": "user"},
+    "admin": {"username": "admin", "password": generate_password_hash("admin"), "role": "admin"}
+}
 
 
 @basic_auth.verify_password
@@ -81,6 +84,11 @@ def handle_revoked_token_error(err):
 
 @jwt.needs_fresh_token_loader
 def handle_needs_fresh_token_error(err):
+    return jsonify({"error": "Fresh token required"}), 401
+
+
+@jwt.user_lookup_error_loader
+def handle_user_lookup_error_loader(err):
     return jsonify({"error": "Fresh token required"}), 401
 
 
