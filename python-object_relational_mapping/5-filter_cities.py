@@ -15,10 +15,13 @@ if __name__ == "__main__":
     cur.execute("SELECT cities.id, cities.name, states.name "
                 "FROM cities "
                 "JOIN states ON cities.state_id = states.id "
-                "ORDER BY cities.id ASC")
+                "WHERE states.name = %s"
+                "ORDER BY cities.id ASC", (argv[4], ))
     query_rows = cur.fetchall()
+    results = []
     for row in query_rows:
         if row[2] == argv[4]:
-            print(row)
+            results.append(row[1])
+    print(", ".join(results))
     cur.close()
     conn.close()
