@@ -21,6 +21,7 @@ def generate_invitations(template: str, attendees: [dict]):
     """
     Generate Invitations
     """
+    index = 0
     if not isinstance(template, str):
         print(f"Expected: str Received: {type(template)}")
         return
@@ -39,9 +40,10 @@ def generate_invitations(template: str, attendees: [dict]):
 
     for attendee in attendees:
         output = template.format_map(Attendee(attendee))
-        with open(f"output_{attendee['name']}.txt", 'w') as file:
+        with open(f"output_{index}.txt", 'w') as file:
             file.write(output)
         file.close()
+        index += 1
         # print(output)
 
 
