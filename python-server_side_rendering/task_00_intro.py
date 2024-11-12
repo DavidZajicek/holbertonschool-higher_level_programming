@@ -8,16 +8,18 @@ import os
 import sys
 
 
+class Attendee(dict):
+    def __missing__(self, key):
+        return "N/A"
+
+    def __getitem__(self, key):
+        return super().__getitem__(key) or "N/A"
+
+
 def generate_invitations(template: str, attendees: [dict]):
     """
     Generate Invitations
     """
-    class Attendee(dict):
-        def __missing__(self, key):
-            return f"{key}: N/A"
-
-        def __getitem__(self, key):
-            return super().__getitem__(key) or f"{key}: N/A"
     index = 1
     if not isinstance(template, str):
         print(f"Expected: str Received: {type(template)}")
