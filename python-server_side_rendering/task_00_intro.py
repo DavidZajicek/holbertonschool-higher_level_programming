@@ -6,6 +6,7 @@ Write a function that generates invitations
 """
 import json
 import os
+import sys
 import requests
 import csv
 
@@ -25,19 +26,16 @@ def generate_invitations(template: str, attendees: [dict]):
     index = 0
     if not isinstance(template, str):
         print(f"Expected: str Received: {type(template)}")
-        return
+        sys.exit()
     if not isinstance(attendees, list):
         print(f"Expected: str Received: {type(attendees)}")
-        return
+        sys.exit()
     if len(attendees) < 1:
         print("No data provided, no output files generated.")
-        return
     if not isinstance(attendees[0], dict):
         print("Attendees data must be a list of dictionaries")
-        raise TypeError
     if template == "":
         print("Template is empty, no output files generated.")
-        return
 
     for attendee in attendees:
         try:
@@ -49,7 +47,7 @@ def generate_invitations(template: str, attendees: [dict]):
             file.close()
             index += 1
         except FileExistsError as exc:
-            raise FileExistsError(exc) from exc
+            print(exc)
         # print(output)
 
 
