@@ -42,7 +42,7 @@ def generate_invitations(template: str, attendees: [dict]):
         with open(f"output_{attendee['name']}.txt", 'w') as file:
             file.write(output)
         file.close()
-        print(output)
+        # print(output)
 
 
 if __name__ == "__main__":
