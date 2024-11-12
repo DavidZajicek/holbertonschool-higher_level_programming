@@ -5,6 +5,7 @@ mandatory
 Write a function that generates invitations
 """
 import json
+import os
 import requests
 import csv
 
@@ -39,11 +40,16 @@ def generate_invitations(template: str, attendees: [dict]):
         return
 
     for attendee in attendees:
-        output = template.format_map(Attendee(attendee))
-        with open(f"output_{index}.txt", 'w') as file:
-            file.write(output)
-        file.close()
-        index += 1
+        try:
+            output = template.format_map(Attendee(attendee))
+            if os.path.exists(f"output_{index}.txt"):
+                raise FileExistsError
+            with open(f"output_{index}.txt", 'w') as file:
+                file.write(output)
+            file.close()
+            index += 1
+        except FileExistsError as exc:
+            raise FileExistsError(exc) from exc
         # print(output)
 
 
