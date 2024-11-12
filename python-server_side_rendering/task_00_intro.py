@@ -18,7 +18,7 @@ def generate_invitations(template: str, attendees: [dict]):
 
         def __getitem__(self, key):
             return super().__getitem__(key) or f"{key}: N/A"
-    index = 0
+    index = 1
     if not isinstance(template, str):
         print(f"Expected: str Received: {type(template)}")
         sys.exit()
@@ -58,7 +58,7 @@ if __name__ == "__main__":
             "event_date": "2023-07-15", "event_location": "New York"},
         {"name": "Bob", "event_title": "Data Science Workshop",
             "event_date": "2023-08-20", "event_location": "San Francisco"},
-        {}
+        {"non-existing-key": "unused-value"}
     ]
 
     # Call the function with the template and attendees list
