@@ -30,8 +30,10 @@ def generate_invitations(template: str, attendees: [dict]):
         return
     if not isinstance(attendees[0], dict):
         print("Attendees data must be a list of dictionaries")
+        return
     if template == "":
         print("Template is empty, no output files generated.")
+        return
 
     for attendee in attendees:
         try:
