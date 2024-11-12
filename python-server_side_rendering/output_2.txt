@@ -1,6 +1,6 @@
-Hello Charlie,
+Hello name: N/A,
 
-You are invited to the AI Summit on event_date: N/A at Boston.
+You are invited to the event_title: N/A on event_date: N/A at event_location: N/A.
 
 We look forward to your presence.
 
