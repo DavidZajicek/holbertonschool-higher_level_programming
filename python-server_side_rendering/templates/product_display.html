@@ -5,12 +5,8 @@
 {% block content %}
 <h1>Product Display</h1>
 
-{% if products == "ID not found" %}
-<p>Product not found</p>
-{% endif %}
-{% if products == "invalid-source" %}
-<p>Wrong source</p>
-{% else %}
+{% if error %}
+    <p class="error">{{ error }}</p>
 {% endif %}
 {% if products %}
 <table>
@@ -28,7 +24,5 @@
     </tr>
     {% endfor %}
 </table>
-{% else %}
-<p>No Products Found</p>
 {% endif %}
 {% endblock %}
