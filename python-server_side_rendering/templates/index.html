@@ -1,0 +1,25 @@
+<!doctype html>
+
+<html lang="en">
+    <head>
+        {% block head %}
+        <title>My Flask App</title>
+        {% endblock %}
+    </head>
+    
+    {% include "header.html" %}
+    <body>
+        <div id="content">
+            {% block content %}
+            <h1>Welcome to My Flask App</h1>
+            <p>This is a simple Flask application.</p>
+            <ul>
+                <li>Flask</li>
+                <li>HTML</li>
+                <li>Templates</li>
+            </ul>
+                {% endblock %}</div>
+        </div>
+    </body>
+    {% include "footer.html" %}
+</html>
