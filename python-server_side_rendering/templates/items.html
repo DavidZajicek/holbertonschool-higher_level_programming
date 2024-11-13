@@ -1,6 +1,9 @@
 {% extends 'index.html' %}
 
+{% block title %}Items List {% endblock %}
+
 {% block content %}
+<h1>Items List</h1>
 <ul>
     {% if items %}
     {% for item in items %}
